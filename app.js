@@ -4,22 +4,21 @@ const {BrowserWindow, Tray, nativeImage} = electron;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow;
 
 function createWindow() {
     let image = nativeImage.createFromPath(__dirname + '/assets/icon.png');
     app.dock.setIcon(image);
 
     mainWindow = new BrowserWindow({
-        'titleBarStyle': 'hidden',
-        'show': false,
-        'darkTheme': true,
-        'backgroundColor': '#141414',
-        'height': 600,
-        'resizable': true,
+        'icon': image,
         'title': 'Netflix Wrapper',
+        'height': 600,
         'width': 800,
-        'icon': image
+        'resizable': true,
+        'show': false,
+        'titleBarStyle': 'hidden',
+        'backgroundColor': '#141414'
     });
     mainWindow.loadURL("file://" + __dirname + '/index.html');
 
@@ -31,9 +30,13 @@ function createWindow() {
         mainWindow.show();
         mainWindow.maximize();
     });
+
+    mainWindow.on('focus', () => {
+        mainWindow.webContents.send('focus', 'OMG HI FOCUS');
+    });
 }
 
-app.on('ready', createWindow)
+app.on('ready', createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

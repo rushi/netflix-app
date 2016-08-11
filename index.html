@@ -15,6 +15,11 @@
 
 <body>
     <webview id="player" autosize="on" src="https://www.netflix.com/browse" plugins></webview>
+    <script type="text/javascript">
+        require('electron').ipcRenderer.on('focus', (e, message) => {
+            document.getElementById('player').focus();
+        });
+    </script>
 </body>
 
 </html>
