@@ -2,5 +2,10 @@
 
 A native Netflix Wrapper for OSX. You can build it yourself or download
 the app from the
-[https://github.com/rushi/netflix-app/releases](releases) page.
+[releases](https://github.com/rushi/netflix-app/releases) page.
 
+
+## Operating Systems
+
+* OSX
+* Others - Coming soon
