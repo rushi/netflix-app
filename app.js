@@ -17,7 +17,7 @@ function createWindow() {
         'width': 800,
         'resizable': true,
         'show': false,
-        'titleBarStyle': 'hidden',
+        'titleBarStyle': 'hidden-inset',
         'backgroundColor': '#141414'
     });
     mainWindow.loadURL("file://" + __dirname + '/index.html');
